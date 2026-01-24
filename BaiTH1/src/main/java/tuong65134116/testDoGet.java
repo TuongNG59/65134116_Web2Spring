@@ -27,12 +27,16 @@ public class testDoGet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//
 		response.setContentType("text/html; charset=UTF-8");
-
-        PrintWriter out = response.getWriter();
-        out.println("<center><h3>Tôi học Web Java</h3></center>");
-        out.println("<hr>");
-        out.println("65CNTT.CLC");
+		
+		String noiDungHTML = "";
+		noiDungHTML += "<center><h3>TOI HOC WEB JAVA</h3></center>";
+		noiDungHTML += "<hr>";
+		noiDungHTML += "65.CNTT-CLC";
+		
+		PrintWriter boTraLoi = response.getWriter();
+		boTraLoi.print(noiDungHTML);
 	}
 
 }
