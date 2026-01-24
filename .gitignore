@@ -1,0 +1,15 @@
+# Eclipse workspace
+.metadata/
+Servers/
+
+# Tomcat
+apache-tomcat-*/
+
+# Eclipse project files
+.settings/
+.classpath
+.project
+
+# Build output
+target/
+bin/
