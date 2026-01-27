@@ -36,8 +36,19 @@ public class BMI extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 		
-		double h = Double.parseDouble(request.getParameter("height"));
-        double w = Double.parseDouble(request.getParameter("weight"));
+		String height = request.getParameter("height");
+	    String weight = request.getParameter("weight");
+	    
+		double h, w;
+		
+		try {
+	        h = Double.parseDouble(height);
+	        w = Double.parseDouble(weight);
+	    } catch (Exception e) {
+	    	request.setAttribute("error", "Vui lòng nhập số hợp lệ!");
+	    	request.getRequestDispatcher("/bmi.html").forward(request, response);
+	        return;
+	    }
         
         double bmi = w / (h * h);
         
@@ -52,11 +63,10 @@ public class BMI extends HttpServlet {
             kq = "Béo phì";
         }
         
-        PrintWriter out = response.getWriter();
-        out.println("<h2>KẾT QUẢ BMI</h2>");
-        out.println("BMI = " + bmi + "<br>");
-        out.println("Kết luận: " + kq + "<br><br>");
-        out.println("<a href='BMI'>Quay lại</a>");
+        request.setAttribute("bmi", String.format("%.2f", bmi));
+        request.setAttribute("ketqua", kq);
+        
+        request.getRequestDispatcher("/bmiResult.jsp").forward(request, response);
 	}
 
 }
