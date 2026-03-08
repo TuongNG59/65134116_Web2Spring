@@ -17,7 +17,7 @@ public class BMIController {
 			@RequestParam("canNang") double canNang,
 			Model model) {
 		
-		double bmi = canNang / (chieuCao * canNang);
+		double bmi = canNang / (chieuCao * chieuCao);
 		
 		String ketQua;
 		
