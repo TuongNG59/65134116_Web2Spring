@@ -8,7 +8,7 @@ import com.example.demo.SinhVien;
 
 @Controller
 public class SinhVienController {
-	@GetMapping("/sinhvien")
+	@GetMapping("/sinhvien2")
 	public String showSinhVien(Model model) {
 		SinhVien sv = new SinhVien(
 				"65134116",
