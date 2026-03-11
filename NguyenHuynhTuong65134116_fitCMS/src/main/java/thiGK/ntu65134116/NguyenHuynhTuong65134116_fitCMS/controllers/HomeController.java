@@ -40,7 +40,7 @@ public class HomeController {
 
         m.addAttribute("lstPages", dsTrang);
 
-        return "allpage";
+        return "allpages";
     }
 }
 
