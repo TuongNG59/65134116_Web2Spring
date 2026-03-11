@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial;
+}
+
+/* HEADER */
+.header{
+    height:70px;
+    background:#fff;
+    border-bottom:1px solid #ccc;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+}
+
+.logo{
+    font-weight:bold;
+}
+
+.username{
+    font-weight:bold;
+}
+
+/* MAIN LAYOUT */
+
+.container{
+    display:flex;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width:220px;
+    background:#fff;
+    border-right:1px solid #ccc;
+    min-height:500px;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.sidebar li{
+    border-bottom:1px solid #ddd;
+}
+
+.sidebar a{
+    display:block;
+    padding:10px;
+    text-decoration:none;
+    color:black;
+}
+
+.sidebar b{
+    display:block;
+    padding:10px;
+    text-decoration:none;
+    color:black;
+}
+
+.sidebar a:hover{
+    background:#ddd;
+}
+
+/* CONTENT */
+
+.content{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f2f2f2;
+}
+
+/* FOOTER */
+
+.footer{
+    text-align:center;
+    padding:10px;
+    border-top:1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.infobox{
+	text-align: center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <div class="logo">
+        TRƯỜNG ĐẠI HỌC NHA TRANG - CNTT
+    </div>
+
+    <div class="username">
+        [UserName]
+    </div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <ul>
+
+            <li><b>Dashboard</b></li>
+
+            <li><a href="/topic/all">Topic - List</a></li>
+            <li><a href="/topic/new">Topic - Addnew</a></li>
+
+            <li><a href="/student/all">Student - List</a></li>
+            <li><a href="/student/new">Student - Addnew</a></li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div class="content">
+
+        <div class="infobox">
+        	<h2>Thông tin sinh viên</h2>
+        	<p>Nguyễn Huỳnh Tường</p>
+        	<p>65134116</p>
+        	<p>65.CNTT-CLC</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    ©2025 by Nguyễn Huỳnh Tường – FIT.NTU
+
+</div>
+
+</body>
+</html>
