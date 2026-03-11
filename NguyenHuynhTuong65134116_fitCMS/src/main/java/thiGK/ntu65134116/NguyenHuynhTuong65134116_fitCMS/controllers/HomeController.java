@@ -23,13 +23,13 @@ public class HomeController {
 	
     public HomeController(){
 
-        dsTrang.add(new Page65134116("001","Home","home","Trang chủ","0"));
-        dsTrang.add(new Page65134116("002","About","about","Giới thiệu","0"));
-        dsTrang.add(new Page65134116("003","Contact","contact","Liên hệ","0"));
+        dsTrang.add(new Page65134116(001,"Home","home","Trang chủ",0));
+        dsTrang.add(new Page65134116(002,"About","about","Giới thiệu",0));
+        dsTrang.add(new Page65134116(003,"Contact","contact","Liên hệ",0));
 
-        dsPost.add(new Post65134116("01","Java","Học Java cơ bản","001","img1"));
-        dsPost.add(new Post65134116("02","Spring","Học Spring Boot","001","img2"));
-        dsPost.add(new Post65134116("03","Thymeleaf","Template engine","002","img3"));
+        dsPost.add(new Post65134116(01,"Java","Học Java cơ bản",001));
+        dsPost.add(new Post65134116(02,"Spring","Học Spring Boot",001));
+        dsPost.add(new Post65134116(03,"Thymeleaf","Template engine",002));
 
     }
 
