@@ -40,6 +40,26 @@ public class Page65134116 {
 	public int getParentPageId() {
 		return parentPageId;
 	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setPageName(String pageName) {
+		this.pageName = pageName;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public void setParentPageId(int parentPageId) {
+		this.parentPageId = parentPageId;
+	}
 	
 	
 	

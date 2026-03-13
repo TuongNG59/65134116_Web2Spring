@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Page</title>
+</head>
+
+<body>
+
+    <h2>Add New Page</h2>
+    <form action="/page/new" method="post">
+        <p>
+            ID:<br>
+            <input type="text" name="id">
+        </p>
+        <p>
+            Page Name:<br>
+            <input type="text" name="pageName">
+        </p>
+        <p>
+            Keyword:<br>
+            <input type="text" name="keyword">
+        </p>
+        <p>
+            Content:<br>
+            <input type="text" name="content">
+        </p>
+        <p>
+            Parent Page ID:<br>
+            <input type="text" name="parentPageId">
+        </p>
+        <button type="submit">Save</button>
+    </form>
+</body>
+
+</html>
