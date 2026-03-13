@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import thiGK.ntu65134116.NguyenHuynhTuong65134116_fitCMS.models.Page65134116;
 import thiGK.ntu65134116.NguyenHuynhTuong65134116_fitCMS.models.Post65134116;
@@ -46,9 +48,17 @@ public class HomeController {
     @GetMapping("/page/new")
     	public String addPageForm(ModelMap m) {
     		
-    		m.addAttribute("page", new Page());
+    		m.addAttribute("page", new Page65134116());
     		
     		return "newpage";
+    }
+    
+    @PostMapping("/page/new")
+    public String saveNewPage(@ModelAttribute("page") Page65134116 newPage) {
+
+        dsTrang.add(newPage);
+
+        return "redirect:/page/all";
     }
 }
 

@@ -7,6 +7,7 @@ public class Page65134116 {
 	private String content;
 	private int parentPageId;
 	
+	
 	public Page65134116(int id, String pageName, String keyword, String content, int parentPageId) {
 		super();
 		this.id = id;
@@ -14,6 +15,10 @@ public class Page65134116 {
 		this.keyword = keyword;
 		this.content = content;
 		this.parentPageId = parentPageId;
+	}
+
+	public Page65134116() {
+		
 	}
 
 	public int getId() {
