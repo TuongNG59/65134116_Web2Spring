@@ -42,6 +42,14 @@ public class HomeController {
 
         return "allpages";
     }
+    
+    @GetMapping("/page/new")
+    	public String addPageForm(ModelMap m) {
+    		
+    		m.addAttribute("page", new Page());
+    		
+    		return "newpage";
+    }
 }
 
 
