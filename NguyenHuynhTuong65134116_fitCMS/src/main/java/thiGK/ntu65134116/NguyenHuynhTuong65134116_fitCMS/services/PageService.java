@@ -12,7 +12,7 @@ import thiGK.ntu65134116.NguyenHuynhTuong65134116_fitCMS.repositories.PageReposi
 public class PageService {
 	@Autowired
 	PageRepository pRepos;
-	List<Page65134116> getAllPage(){
+	public List<Page65134116> getAllPage(){
 		return pRepos.findAll();
 	}
 }
