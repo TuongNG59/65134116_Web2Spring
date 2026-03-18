@@ -2,10 +2,12 @@ package thiGK.ntu65134116.NguyenHuynhTuong65134116_fitCMS.controllers;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import thiGK.ntu65134116.NguyenHuynhTuong65134116_fitCMS.models.Page65134116;
+import thiGK.ntu65134116.NguyenHuynhTuong65134116_fitCMS.repositories.PageRepository;
 
 @RestController
 public class RESTAPIPageController {
@@ -20,4 +22,7 @@ public class RESTAPIPageController {
     public ArrayList<Page65134116> getAllPage() {
         return dsTrang;
     }
+    
+    @Autowired
+    PageRepository pRepost;
 }
