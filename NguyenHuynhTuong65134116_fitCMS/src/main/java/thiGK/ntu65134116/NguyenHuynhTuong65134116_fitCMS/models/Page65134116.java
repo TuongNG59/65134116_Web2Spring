@@ -12,7 +12,7 @@ public class Page65134116 {
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="pageName")
+	@Column(name="page_name")
 	private String pageName;
 	
 	@Column(name="keyword")
@@ -21,7 +21,7 @@ public class Page65134116 {
 	@Column(name="content")
 	private String content;
 	
-	@Column(name="parentPageId")
+	@Column(name="parent_page_id")
 	private int parentPageId;
 	
 	
