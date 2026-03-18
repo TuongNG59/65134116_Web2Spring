@@ -16,7 +16,7 @@ public class RESTAPIPageController {
         dsTrang.add(new Page65134116(0,"TenTrang","TuKhoa","Noidung",0));
     }
 
-    @GetMapping("/api/page")
+    @GetMapping("/api/page/all")
     public ArrayList<Page65134116> getAllPage() {
         return dsTrang;
     }
