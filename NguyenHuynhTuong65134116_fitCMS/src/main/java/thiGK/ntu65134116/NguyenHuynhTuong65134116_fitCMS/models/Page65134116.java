@@ -1,10 +1,27 @@
 package thiGK.ntu65134116.NguyenHuynhTuong65134116_fitCMS.models;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="pages")
 public class Page65134116 {
+	@Id
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="pageName")
 	private String pageName;
+	
+	@Column(name="keyword")
 	private String keyword;
+	
+	@Column(name="content")
 	private String content;
+	
+	@Column(name="parentPageId")
 	private int parentPageId;
 	
 	
