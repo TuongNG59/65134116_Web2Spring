@@ -45,6 +45,6 @@ public class RESTAPIPageController {
     @DeleteMapping("/restAPI/page/{id}")
     public String deletePage(@PathVariable int id) {
         pService.deletePage(id);
-        return "Deleted successfully";
+        return "Xoá thành công";
     }
 }

@@ -26,6 +26,9 @@ public class PageService {
 	}
 	
 	public void deletePage(int id) {
+	    if (!pRepos.existsById(id)) {
+	        throw new RuntimeException("ID không tồn tại");
+	    }
 	    pRepos.deleteById(id);
 	}
 }
