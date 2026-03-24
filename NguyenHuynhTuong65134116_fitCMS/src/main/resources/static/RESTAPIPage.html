@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Page Manager</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #aaa;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input {
+            margin: 5px;
+            padding: 5px;
+            width: 250px;
+        }
+
+        button {
+            padding: 6px 12px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="section">
+    <h2>Danh sách Page</h2>
+    <button onclick="loadPages()">Load Pages</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Parent</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="pageTable"></tbody>
+    </table>
+</div>
+
+<div class="section">
+    <h2>Thêm Page</h2>
+
+    <input id="id" placeholder="ID"><br>
+    <input id="name" placeholder="Page Name"><br>
+    <input id="keyword" placeholder="Keyword"><br>
+    <input id="content" placeholder="Content"><br>
+    <input id="parent" placeholder="Parent ID"><br>
+
+    <button onclick="addPage()">Add</button>
+</div>
+
+<div class="section">
+    <h2>Xem Page theo ID</h2>
+
+    <input id="viewId" placeholder="Nhập ID">
+    <button onclick="viewPage()">View</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+
+window.onload = loadPages;
+
+// Load danh sách
+function loadPages() {
+    fetch('/restAPI/page/all')
+    .then(res => res.json())
+    .then(data => {
+        let html = "";
+        data.forEach(p => {
+            html += `
+                <tr>
+                    <td>${p.id}</td>
+                    <td>${p.pageName}</td>
+                    <td>${p.parentPageId}</td>
+                    <td>
+                        <button onclick="deletePage(${p.id})">Delete</button>
+                    </td>
+                </tr>
+            `;
+        });
+        document.getElementById("pageTable").innerHTML = html;
+    });
+}
+
+// Thêm
+function addPage() {
+    let page = {
+        id: document.getElementById("id").value,
+        pageName: document.getElementById("name").value,
+        keyword: document.getElementById("keyword").value,
+        content: document.getElementById("content").value,
+        parentPageId: document.getElementById("parent").value
+    };
+
+    fetch('/restAPI/page', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(page)
+    })
+    .then(() => {
+        alert("Thêm thành công!");
+        loadPages();
+    });
+}
+
+// Xóa
+function deletePage(id) {
+    if (!confirm("Bạn có chắc muốn xóa?")) return;
+
+    fetch('/restAPI/page/' + id, {
+        method: 'DELETE'
+    })
+    .then(() => {
+        alert("Đã xóa!");
+        loadPages();
+    });
+}
+
+// Xem theo ID
+function viewPage() {
+    let id = document.getElementById("viewId").value;
+
+    fetch('/restAPI/page/' + id)
+    .then(res => res.json())
+    .then(p => {
+        document.getElementById("result").innerHTML = `
+            <p><b>ID:</b> ${p.id}</p>
+            <p><b>Name:</b> ${p.pageName}</p>
+            <p><b>Keyword:</b> ${p.keyword}</p>
+            <p><b>Content:</b> ${p.content}</p>
+        `;
+    });
+}
+
+</script>
+
+</body>
+</html>

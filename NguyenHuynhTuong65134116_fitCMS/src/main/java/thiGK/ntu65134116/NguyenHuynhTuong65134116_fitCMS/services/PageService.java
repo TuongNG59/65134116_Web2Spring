@@ -24,4 +24,8 @@ public class PageService {
 	public Page65134116 savePage(Page65134116 page) {
 	    return pRepos.save(page);
 	}
+	
+	public void deletePage(int id) {
+	    pRepos.deleteById(id);
+	}
 }
