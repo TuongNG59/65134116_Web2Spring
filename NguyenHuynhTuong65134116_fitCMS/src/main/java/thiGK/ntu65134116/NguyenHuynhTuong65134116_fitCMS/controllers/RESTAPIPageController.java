@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import thiGK.ntu65134116.NguyenHuynhTuong65134116_fitCMS.models.Page65134116;
@@ -30,5 +32,11 @@ public class RESTAPIPageController {
     @GetMapping("/restAPI/page/{id}")
     public Page65134116 getPage(@PathVariable("id") int id) {
     	return pService.getPageById(id);
+    }
+    
+    
+    @PostMapping("/restAPI/page")
+    public Page65134116 createPage(@RequestBody Page65134116 page) {
+        return pService.savePage(page);
     }
 }

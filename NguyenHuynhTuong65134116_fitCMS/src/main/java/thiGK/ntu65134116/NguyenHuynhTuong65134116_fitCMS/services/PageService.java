@@ -20,4 +20,8 @@ public class PageService {
 		return pRepos.getById(id);
 //		return pRepos.findById(id).orElse(null);
 	}
+	
+	public Page65134116 savePage(Page65134116 page) {
+	    return pRepos.save(page);
+	}
 }
