@@ -21,5 +21,9 @@ public class PostService {
     public Post65134116 getPostById(int id) {
         return pRepos.findById(id).orElse(null);
     }
-
+    
+    
+    public Post65134116 savePost(Post65134116 post) {
+        return pRepos.save(post);
+    }
 }
