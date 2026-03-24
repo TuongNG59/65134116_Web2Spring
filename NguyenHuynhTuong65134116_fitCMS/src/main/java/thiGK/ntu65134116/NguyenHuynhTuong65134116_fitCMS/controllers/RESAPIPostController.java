@@ -3,6 +3,7 @@ package thiGK.ntu65134116.NguyenHuynhTuong65134116_fitCMS.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,5 +31,11 @@ public class RESAPIPostController {
     @PostMapping("/restAPI/post")
     public Post65134116 createPost(@RequestBody Post65134116 post) {
         return pService.savePost(post);
+    }
+    
+    @DeleteMapping("/restAPI/post/{id}")
+    public String deletePost(@PathVariable int id) {
+        pService.deletePost(id);
+        return "Xoá thành công";
     }
 }

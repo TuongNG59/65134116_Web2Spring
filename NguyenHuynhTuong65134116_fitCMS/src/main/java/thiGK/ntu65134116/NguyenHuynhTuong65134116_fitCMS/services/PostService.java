@@ -26,4 +26,12 @@ public class PostService {
     public Post65134116 savePost(Post65134116 post) {
         return pRepos.save(post);
     }
+    
+    
+    public void deletePost(int id) {
+        if (!pRepos.existsById(id)) {
+            throw new RuntimeException("ID không tồn tại");
+        }
+        pRepos.deleteById(id);
+    }
 }
