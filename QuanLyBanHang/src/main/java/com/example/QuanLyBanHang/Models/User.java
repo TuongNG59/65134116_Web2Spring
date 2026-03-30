@@ -3,8 +3,6 @@ package com.example.QuanLyBanHang.Models;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.management.relation.Role;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -41,6 +39,19 @@ public class User {
     )
     private Set<Role> roles = new HashSet<>();
     //getter, setter, contrstructor
+
+	public User(Long id, String username, String password, boolean enabled, Set<Role> roles) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.enabled = enabled;
+		this.roles = roles;
+	}
+	
+	public User() {
+		super();
+	}
 
 	public Long getId() {
 		return id;
@@ -81,20 +92,6 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-
-	public User(Long id, String username, String password, boolean enabled, Set<Role> roles) {
-		super();
-		this.id = id;
-		this.username = username;
-		this.password = password;
-		this.enabled = enabled;
-		this.roles = roles;
-	}
-
-	public User() {
-		super();
-	}
     
-    
-    
+	
 }

@@ -1,4 +1,4 @@
-package com.example.QuanLyBanHang.DTOs;
+package com.example.QuanLyBanHang.Models;
 
 public class UserRegistrationDTO {
     private String username;
