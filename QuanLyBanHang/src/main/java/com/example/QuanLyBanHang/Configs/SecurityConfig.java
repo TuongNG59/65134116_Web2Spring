@@ -1,4 +1,4 @@
-package com.example.QuanLyBanHang.config;
+package com.example.QuanLyBanHang.Configs;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
