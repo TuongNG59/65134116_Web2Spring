@@ -39,12 +39,12 @@ public class AdminController {
     @PostMapping("/tintuc/save")
     public String save(@ModelAttribute("tinTuc") TinTuc tinTuc) {
         tinTucService.save(tinTuc);
-        return "redirect:/admin/tin-tuc";
+        return "redirect:/admin/tintuc";
     }
     
     @GetMapping("/tintuc/xoa/{id}")
     public String delete(@PathVariable("id") Long id) {
         tinTucService.delete(id);
-        return "redirect:/admin/tin-tuc";
+        return "redirect:/admin/tintuc";
     }
 }
