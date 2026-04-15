@@ -1,5 +1,36 @@
 package clc65.tuong.qltintuc.Controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import clc65.tuong.qltintuc.Models.TinTuc;
+import clc65.tuong.qltintuc.Services.LoaiTinTucService;
+import clc65.tuong.qltintuc.Services.TinTucService;
+
+@Controller
+@RequestMapping("/admin")
 public class AdminController {
+
+    @Autowired
+    private TinTucService tinTucService;
+
+    @Autowired
+    private LoaiTinTucService loaiTinTucService;
+
+    @GetMapping("/tintuc")
+    public String index(Model model) {
+        model.addAttribute("dsTinTuc", tinTucService.getAll());
+        return "admin/index";
+    }
+
+    @GetMapping("/tintuc/them")
+    public String add(Model model) {
+        model.addAttribute("tinTuc", new TinTuc());
+        model.addAttribute("dsLoaiTin", loaiTinTucService.getAll());
+        return "admin/add";
+    }
 
 }
