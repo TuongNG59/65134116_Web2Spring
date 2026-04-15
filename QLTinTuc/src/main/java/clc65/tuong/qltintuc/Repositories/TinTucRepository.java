@@ -1,5 +1,11 @@
 package clc65.tuong.qltintuc.Repositories;
 
-public class TinTucRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import clc65.tuong.qltintuc.Models.LoaiTinTuc;
+
+@Repository
+public interface TinTucRepository extends JpaRepository<LoaiTinTuc, Long> {
+	
 }
