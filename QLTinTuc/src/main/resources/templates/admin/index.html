@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý tin tức</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Danh sách tin tức</h2>
+        <a th:href="@{/admin/tintuc/them}" class="btn btn-primary"> + Thêm tin mới</a>
+    </div>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Tiêu đề</th>
+                <th>Ngày đăng</th>
+                <th>Loại tin</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="tin : ${dsTinTuc}">
+                <td th:text="${tin.id}"></td>
+                <td th:text="${tin.tieude}"></td>
+                
+                <td th:text="${tin.ngaydang != null ? #temporals.format(tin.ngaydang, 'dd-MM-yyyy HH:mm') : 'N/A'}"></td>
+                
+                <td th:text="${tin.loaiTinTuc != null ? tin.loaiTinTuc.ten : 'Chưa có loại'}"></td>
+                
+                <td>
+                    <a th:href="@{/admin/tintuc/xoa/{id}(id=${tin.id})}" 
+                       class="btn btn-danger btn-sm"
+                       onclick="return confirm('Xóa hả Tuong?')">Xóa</a>
+                </td>
+            </tr>
+            <tr th:if="${#lists.isEmpty(dsTinTuc)}">
+                <td colspan="5" class="text-center">Chưa có bài viết nào trong hệ thống.</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
