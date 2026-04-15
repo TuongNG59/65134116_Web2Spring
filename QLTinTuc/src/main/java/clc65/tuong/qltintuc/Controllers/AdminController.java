@@ -47,4 +47,14 @@ public class AdminController {
         tinTucService.delete(id);
         return "redirect:/admin/tintuc";
     }
+    
+    @GetMapping("/tintuc/sua/{id}")
+    public String edit(@PathVariable("id") Long id, Model model) {
+        TinTuc tinTuc = tinTucService.getById(id);
+        
+        model.addAttribute("tinTuc", tinTuc);
+        model.addAttribute("dsLoaiTin", loaiTinTucService.getAll());
+        
+        return "admin/edit";
+    }
 }

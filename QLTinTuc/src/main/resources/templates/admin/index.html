@@ -31,9 +31,10 @@
                 <td th:text="${tin.loaiTinTuc != null ? tin.loaiTinTuc.ten : 'Chưa có loại'}"></td>
                 
                 <td>
+                	<a th:href="@{/admin/tintuc/sua/{id}(id=${tin.id})}" class="btn btn-warning btn-sm">Sửa</a>
                     <a th:href="@{/admin/tintuc/xoa/{id}(id=${tin.id})}" 
                        class="btn btn-danger btn-sm"
-                       onclick="return confirm('Xóa hả Tuong?')">Xóa</a>
+                       onclick="return confirm('Chắc chắn chứ?')">Xóa</a>
                 </td>
             </tr>
             <tr th:if="${#lists.isEmpty(dsTinTuc)}">
