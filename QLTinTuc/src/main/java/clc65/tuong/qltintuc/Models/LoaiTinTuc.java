@@ -9,12 +9,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Data;
+
 import lombok.ToString;
 
 @Entity
 @Table(name = "LoaiTinTuc")
-@Data
 public class LoaiTinTuc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +25,34 @@ public class LoaiTinTuc {
     @OneToMany(mappedBy = "loaiTinTuc") 
     @ToString.Exclude 
     private List<TinTuc> danhSachTinTuc;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTen() {
+		return ten;
+	}
+
+	public void setTen(String ten) {
+		this.ten = ten;
+	}
+
+	public List<TinTuc> getDanhSachTinTuc() {
+		return danhSachTinTuc;
+	}
+
+	public void setDanhSachTinTuc(List<TinTuc> danhSachTinTuc) {
+		this.danhSachTinTuc = danhSachTinTuc;
+	}
+
+	public LoaiTinTuc() {
+		super();
+	}
+    
+    
 }
