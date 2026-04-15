@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import clc65.tuong.qltintuc.Models.TinTuc;
@@ -31,6 +33,12 @@ public class AdminController {
         model.addAttribute("tinTuc", new TinTuc());
         model.addAttribute("dsLoaiTin", loaiTinTucService.getAll());
         return "admin/add";
+    }
+    
+    @PostMapping("/tintuc/save")
+    public String save(@ModelAttribute("tinTuc") TinTuc tinTuc) {
+        tinTucService.save(tinTuc);
+        return "redirect:/admin/tin-tuc";
     }
 
 }
