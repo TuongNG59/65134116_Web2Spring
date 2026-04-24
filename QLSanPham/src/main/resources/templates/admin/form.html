@@ -19,8 +19,8 @@
                             <input type="hidden" th:field="*{id}">
 
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Tên món ăn</label>
-                                <input type="text" th:field="*{ten}" class="form-control" placeholder="VD: Cơm tấm sườn bì chả" required>
+                                <label class="form-label fw-bold">Tên sản phẩm</label>
+                                <input type="text" th:field="*{ten}" class="form-control" placeholder="VD: SamSung Galaxy A12" required>
                             </div>
 
                             <div class="mb-3">
@@ -46,7 +46,7 @@
                             <div class="d-flex gap-2">
                                 <button type="submit" class="btn w-100 fw-bold" 
                                         th:classappend="${sp.id == null ? 'btn-success' : 'btn-warning'}"
-                                        th:text="${sp.id == null ? 'Lưu món mới' : 'Xác nhận sửa'}">
+                                        th:text="${sp.id == null ? 'Lưu sản phẩm mới?' : 'Xác nhận sửa'}">
                                 </button>
                                 <a href="/admin/products" class="btn btn-light border w-100">Hủy bỏ</a>
                             </div>

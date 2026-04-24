@@ -22,7 +22,7 @@ public class SecurityConfig {
             )
             
             .formLogin(form -> form
-                .defaultSuccessUrl("/admin/tintuc", true)
+                .defaultSuccessUrl("/admin/products", true)
                 .permitAll()
             )
             

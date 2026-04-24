@@ -38,7 +38,7 @@ public class AdminController {
     }
 
     @GetMapping("/products/edit/{id}")
-    public String editForm(@PathVariable Long id, Model model) {
+    public String editForm(@PathVariable("id") Long id, Model model) { // Thêm ("id")
         SanPham sp = sanPhamService.getById(id);
         model.addAttribute("sp", sp);
         model.addAttribute("listLoai", theLoaiService.getAll());
@@ -53,7 +53,7 @@ public class AdminController {
     }
 
     @GetMapping("/products/delete/{id}")
-    public String delete(@PathVariable Long id) {
+    public String delete(@PathVariable("id") Long id) { // Thêm ("id")
         sanPhamService.delete(id);
         return "redirect:/admin/products";
     }
