@@ -24,4 +24,12 @@ public class SanPhamService {
     public SanPham getById(Long id) {
         return sanPhamRepo.findById(id).orElse(null);
     }
+    
+    public void save(SanPham sp) {
+        sanPhamRepo.save(sp);
+    }
+
+    public void delete(Long id) {
+        sanPhamRepo.deleteById(id);
+    }
 }
